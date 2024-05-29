@@ -1,0 +1,10 @@
+https://ieee-dataport.org/documents/20kv-xlpe-cable-historical-inspection-data
+
+- TD Stability is tan-delta stability
+- Delta TD is differential tan-delta
+- Mean TD is mean tan-delta
+
+These three metrics follow IEEE 400.2-2013
+
+- Partial Discharge was measured in pC according to IEC 60270.
+- Neutral corrosion was measured by using time domain reflectometer (TDR) during cable inspection
