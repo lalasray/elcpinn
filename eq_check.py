@@ -9,7 +9,7 @@ time = 2000
 
 def u_s(t, I_p):
     dI_p_dt = np.gradient(I_p, t)
-    u_s = -M * dI_p_dt #/ (-1*10**(-8))
+    u_s = -M * dI_p_dt
     
     return u_s
 
