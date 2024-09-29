@@ -13,7 +13,7 @@ def u_s(t, I_p):
     
     return u_s
 
-file_path = '20C_50Hz_50A.csv'
+file_path = r'Rogowski_data\Rogowski_data\20C\20C_50Hz_50A.csv'
 df = pd.read_csv(file_path, sep=';', header=None)
 
 t = np.linspace(0, 1, time)
