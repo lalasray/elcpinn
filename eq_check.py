@@ -9,11 +9,11 @@ time = 2000
 
 def u_s(t, I_p):
     dI_p_dt = np.gradient(I_p, t)
-    u_s = -M * dI_p_dt / (-1*10**(-8))
+    u_s = -M * dI_p_dt #/ (-1*10**(-8))
     
     return u_s
 
-file_path = '/Users/virginianegri/Desktop/Rogowski/Rogowski_data/20C/20C_50Hz_50A.csv'
+file_path = '20C_50Hz_50A.csv'
 df = pd.read_csv(file_path, sep=';', header=None)
 
 t = np.linspace(0, 1, time)
