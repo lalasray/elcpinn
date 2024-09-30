@@ -7,7 +7,7 @@ import torch.optim as optim
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-file_path = r'Rogowski_data\Rogowski_data\20C\20C_50Hz_50A.csv'
+file_path = r'Rogowski_data\Rogowski_data\55C\55C_50Hz_50A.csv'
 df = pd.read_csv(file_path, sep=';', header=None)
 
 tr_50 = 100 / 1000 / 1000 
@@ -80,13 +80,21 @@ with torch.no_grad():
 predicted_output = predicted_output_normalized * (real_output_max - real_output_min) + real_output_min
 
 plt.figure(figsize=(10, 6))
+plt.subplot(2, 1, 1)  
 plt.plot(np.linspace(0, 1, time), real_output, label='Real Output Voltage', color='green')
-plt.plot(np.linspace(0, 1, time), predicted_output, label='Predicted Output Voltage', color='orange')
-plt.title('Comparison of Real and Predicted Output Voltages')
+plt.title('Real Output Voltage')
 plt.xlabel('Time (s)')
 plt.ylabel('Voltage (V)')
 plt.legend()
 plt.grid()
+plt.subplot(2, 1, 2)
+plt.plot(np.linspace(0, 1, time), predicted_output, label='Predicted Output Voltage', color='orange')
+plt.title('Predicted Output Voltage')
+plt.xlabel('Time (s)')
+plt.ylabel('Voltage (V)')
+plt.legend()
+plt.grid()
+plt.tight_layout()
 plt.show()
 
 print(f'Estimated value of x: {model.x.item():.4f}')
