@@ -10,7 +10,7 @@ print(df.shape)
 
 plt.figure(figsize=(10, 6))
 for i in range(4):
-    plt.plot(df.iloc[i, :2000], label=f'Val {i+1}')
+    plt.plot(df.iloc[i, :5000], label=f'Val {i+1}')
 
 plt.gca().set_xticks([])
 plt.title('Data')

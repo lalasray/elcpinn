@@ -5,7 +5,7 @@ import pandas as pd
 #file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Resistance Rogowski/1_rog3_tamb_40_-5_s.txt'
 #file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Resistance Rogowski/1_rog4_tamb_40_-5_s.txt'
 #file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Resistance Rogowski/2_rog1_-5_40_s.txt'
-file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Resistance Rogowski/2_rog1_-5_40_s.txt'
+file_path = f'Rogowski Model/Rogowski coils/Resistance Rogowski/2_rog1_-5_40_s.txt'
 
 # Read the data from the text file
 df = pd.read_csv(file_path, sep="\t", header=None, names=["time", "first_value", "second_value"], parse_dates=["time"])

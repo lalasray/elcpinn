@@ -5,7 +5,7 @@ import pandas as pd
 tr_50 = 100 / 1000 / 1000 
 w_50 = 2 * np.pi * 50  
 M = tr_50 / w_50  
-time = 2000 
+time = 200
 
 def u_s(t, I_p):
     dI_p_dt = np.gradient(I_p, t)
@@ -18,7 +18,7 @@ df = pd.read_csv(file_path, sep=';', header=None)
 
 t = np.linspace(0, 1, time)
 I_p = df.iloc[0, :time]
-real_output = df.iloc[1, :time]
+real_output = df.iloc[1, :time]*(-1)
 output = u_s(t, I_p)
 
 fig, axs = plt.subplots(3, 1, figsize=(10, 8))
@@ -29,7 +29,7 @@ axs[0].set_ylabel('Current (A)')
 axs[0].grid(True)
 axs[0].legend()
 
-axs[1].plot(t, output, label='Output Voltage $u_s(t)$', color='orange')
+axs[1].plot(t, output, label='PD Voltage $u_s(t)$', color='orange')
 axs[1].set_title('Output Voltage $u_s(t)$')
 axs[1].set_xlabel('Time (s)')
 axs[1].set_ylabel('Voltage (V)')

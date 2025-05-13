@@ -14,7 +14,7 @@ import numpy as np
 #file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Power quality Rogowski/4_20Cend_30%/rog1_150Hz_20Cend_30%.txt'
 
 #file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Power quality Rogowski/1_20C_30%/rog1_2500Hz_20C_30%.txt'
-file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Power quality Rogowski/2_40C_30%/rog1_2500Hz_40C_30%.txt'
+file_path = f'Rogowski Model/Rogowski coils/Power quality Rogowski/2_40C_30%/rog1_2500Hz_40C_30%.txt'
 #file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Power quality Rogowski/3_-5C_30%/rog1_150Hz_-5C_30%.txt'
 #file_path = '/home/lala/other/Repos/git/elcpinn/Rogowski Model/Rogowski coils/Power quality Rogowski/4_20Cend_30%/rog1_150Hz_20Cend_30%.txt'
 
