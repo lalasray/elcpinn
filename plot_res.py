@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load CSV
-file_path = r'Rogowski_data_new\Eval\50C\50C_250Hz_20A_voltage_only.csv'
+file_path = r'Rogowski_data_3\Eval\0C\0C_50Hz_50A_voltage_only.csv'
 df = pd.read_csv(file_path, sep=';')
 
 # Create smooth sinusoidal drift between 0% and 7% (multiplier: 1.00 to 1.07)

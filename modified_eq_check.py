@@ -25,7 +25,7 @@ df = pd.read_csv(file_path, sep=';', header=None)
 
 t = np.linspace(0, 1, time) 
 I_p = df.iloc[0, :time] 
-real_output = df.iloc[1, :time] 
+real_output = df.iloc[2, :time] 
 output = u_s(t, I_p) 
 
 def normalize(data):

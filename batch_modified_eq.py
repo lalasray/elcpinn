@@ -41,7 +41,7 @@ for file_path in csv_files:
 
         t = np.linspace(0, 1, time)
         I_p = df.iloc[0, :time]
-        real_output = df.iloc[1, :time]
+        real_output = df.iloc[3, :time]
         output = u_s(t, I_p)
 
         normalized_output = normalize(output)

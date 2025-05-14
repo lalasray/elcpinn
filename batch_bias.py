@@ -1,32 +1,39 @@
 import pandas as pd
 import numpy as np
-import os
 from pathlib import Path
 
-# Base directory to search in
+# Original and new base directories
 base_dir = Path(r'Rogowski_data_new\Eval')
+target_base_dir = Path(r'Rogowski_data_3\Eval')
 
-# Loop through all matching CSV files recursively
+# Column to apply drift to
+column_name = 'Predicted_Output_(V)'
+
+# Number of cosine oscillation cycles over the entire dataset
+k = np.random.randint(1, 3)  # Increase for faster drift (e.g., 10 for faster, 1 for slow)
+
+# Process each matching CSV
 for filepath in base_dir.rglob('*_voltage_only.csv'):
     try:
-        # Load the file
         df = pd.read_csv(filepath, sep=';')
 
-        # Check column exists
-        if 'Predicted_Output_(V)' not in df.columns:
+        if column_name not in df.columns:
             print(f"Skipped (missing column): {filepath}")
             continue
 
-        # Create smooth sinusoidal drift: 0% to 7%
+        # Generate cosine drift: 0% to 7%, with `k` cycles
         n = len(df)
-        drift = 1 + 0.035 * (1 + np.cos(np.linspace(0, 2 * np.pi, n)))
+        drift = 1.085 + 0.035 * np.cos(np.linspace(0, 2 * np.pi * k, n))
+        df[column_name] *= drift
 
-        # Apply drift
-        df['Predicted_Output_(V)'] = df['Predicted_Output_(V)'] * drift
+        # Construct new save path, preserving folder structure
+        relative_path = filepath.relative_to(base_dir)
+        target_path = target_base_dir / relative_path
+        target_path.parent.mkdir(parents=True, exist_ok=True)
 
-        # Save file back (overwrite)
-        df.to_csv(filepath, sep=';', index=False)
-        print(f"Updated: {filepath}")
+        # Save modified CSV
+        df.to_csv(target_path, sep=';', index=False)
+        print(f"Saved with drift: {target_path}")
 
     except Exception as e:
         print(f"Error processing {filepath}: {e}")
